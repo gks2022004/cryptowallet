@@ -13,6 +13,7 @@ interface TransactionTableProps {
   address: string;
 }
 
+// have to change it for the sepolia instead of mumbai 
 const MUMBAI_API_KEY = "<YOUR-API-KEY>";
 const MUMBAI_API_BASE_URL = "https://api-testnet.polygonscan.com/api";
 
@@ -37,47 +38,17 @@ const TransactionDetails: React.FC<TransactionTableProps> = ({ address }) => {
   }, [address]);
 
   return (
-    // <table>
-    //   <thead>
-    //     <tr>
-    //       <th>No.</th>
-    //       <th>Hash</th>
-    //       <th>From</th>
-    //       <th>To</th>
-    //       <th>Status</th>
-    //       <th>Timestamp</th>
-    //     </tr>
-    //   </thead>
-    //   <tbody>
-    //     {transactions.map((transaction, index) => (
-    //       <tr key={index}>
-    //         <td>{index + 1}</td>
-    //         <td>{`${transaction.hash.slice(0, 5)}...${transaction.hash.slice(
-    //           -3
-    //         )}`}</td>
-    //         <td>{`${transaction.from.slice(0, 5)}...${transaction.from.slice(
-    //           -3
-    //         )}`}</td>
-    //         <td>{`${transaction.to.slice(0, 5)}...${transaction.to.slice(
-    //           -3
-    //         )}`}</td>
-    //         {/* <td>{transaction.isError}</td> */}
-    //         {transaction.isError === "0" ? <td>✅</td> : <td>❌</td>}
-    //         <td>{parseInt(transaction.timeStamp, 10)}</td>
-    //       </tr>
-    //     ))}
-    //   </tbody>
-    // </table>
+
 
     <table className="min-w-full divide-y divide-gray-200">
     <thead className="bg-gray-100">
       <tr>
-        <th className="py-2 px-4">No.</th>
-        <th className="py-2 px-4">Hash</th>
-        <th className="py-2 px-4">From</th>
-        <th className="py-2 px-4">To</th>
-        <th className="py-2 px-4">Status</th>
-        <th className="py-2 px-4">Timestamp</th>
+        <th className="py-2 px-4 text-black">No.</th>
+        <th className="py-2 px-4 text-black">Hash</th>
+        <th className="py-2 px-4 text-black">From</th>
+        <th className="py-2 px-4 text-black">To</th>
+        <th className="py-2 px-4 text-black">Status</th>
+        <th className="py-2 px-4 text-black">Timestamp</th>
       </tr>
     </thead>
     <tbody>

@@ -1,4 +1,5 @@
 import { Wallet } from "ethers";
+import * as bip39 from "bip39"; 
 
 interface Account {
   privateKey: string;
@@ -12,24 +13,19 @@ export function generateAccount(
 ): { account: Account; seedPhrase: string } {
   let wallet: Wallet;
 
+  // Generate a 24-word seed phrase if not provided
   if (seedPhrase === "") {
-    seedPhrase = Wallet.createRandom().mnemonic.phrase;
+    seedPhrase = bip39.generateMnemonic(256);
   }
 
-  // If the seed phrase does not contain spaces, it is likely a mnemonic
   // eslint-disable-next-line prefer-const
   wallet = seedPhrase.includes(" ")
-    ? Wallet.fromMnemonic(seedPhrase, `m/44'/60'/0'/0/${index}`)
-    : new Wallet(seedPhrase);
+    ? Wallet.fromMnemonic(seedPhrase, `m/44'/60'/0'/0/${index}`) // BIP-44 path for Ethereum
+    : new Wallet(seedPhrase); // Create wallet directly from private key
 
-  // console.log("hehe",wallet);
-
-  const { address } = wallet; // we are capturing address variable from 'wallet' object
-  
+  const { address } = wallet;
   const account = { address, privateKey: wallet.privateKey, balance: "0" };
 
-  // If the seedphrase does not include spaces then it's actually a private key, so return a blank string.
+  // Return the seed phrase only if it's a mnemonic
   return { account, seedPhrase: seedPhrase.includes(" ") ? seedPhrase : "" };
 }
-
-

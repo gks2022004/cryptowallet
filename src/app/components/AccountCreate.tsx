@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { generateAccount } from "../wallet-utils/AccountUtils";
 import AccountDetails from "./AccountDetails";
-import TransactionDetails from "./TransactionDetails";
+//import TransactionDetails from "./TransactionDetails";
 
 interface Account {
   privateKey: string;
@@ -86,7 +86,7 @@ const AccountCreate: React.FC = () => {
         </div>
 
         <div>
-          <p className="text-lg font-semibold">Your 12 Phrase Mnemonic:</p>
+          <p className="text-lg font-semibold">Your 24 Phrase Mnemonic:</p>
           <span className="text-gray-700 dark:text-gray-300">
             {seedPhrase || "No seed phrase available"}
           </span>
@@ -98,7 +98,7 @@ const AccountCreate: React.FC = () => {
       {account && (
         <>
           <AccountDetails account={account} />
-          <TransactionDetails address={account.address} />
+          {/*<TransactionDetails address={account.address} />*/}
         </>
       )}
     </div>
