@@ -17,6 +17,7 @@ export function generateAccount(
   }
 
   // If the seed phrase does not contain spaces, it is likely a mnemonic
+  // eslint-disable-next-line prefer-const
   wallet = seedPhrase.includes(" ")
     ? Wallet.fromMnemonic(seedPhrase, `m/44'/60'/0'/0/${index}`)
     : new Wallet(seedPhrase);
