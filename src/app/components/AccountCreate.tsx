@@ -43,7 +43,7 @@ const AccountCreate: React.FC = () => {
       <h2 className="text-3xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-500 to-blue-600">
         Prototype Wallet on Sepolia
       </h2>
-
+   
       <div className="flex justify-center gap-4">
         <button
           onClick={createAccount}
@@ -101,6 +101,17 @@ const AccountCreate: React.FC = () => {
           {/*<TransactionDetails address={account.address} />*/}
         </>
       )}
+      <div>
+        Need help? Contact{" "}
+        <a
+          href="https://quranium.org/contact-us"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          Quranium support
+        </a>
+      </div>
     </div>
   );
 };
