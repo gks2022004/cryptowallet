@@ -101,17 +101,6 @@ const AccountCreate: React.FC = () => {
           {/*<TransactionDetails address={account.address} />*/}
         </>
       )}
-      <div>
-        Need help? Contact{" "}
-        <a
-          href="https://quranium.org/contact-us"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
-        >
-          Quranium support
-        </a>
-      </div>
     </div>
   );
 };
